@@ -4,56 +4,74 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>AirB&B Search</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1> Airbnb Search</h1>
+        <h1>Airbnb Search</h1>
         <form id="searchForm">
             <div class="search-results-container">
                 <div id="results"></div>
-                <div id ="image-container"></div>
+                <div id="image-container"></div>
             </div>
 
             <label for="locationInput">Location</label>
-            <input type="text"
-            id="locationInput"
-            name="location"
-            placeholder="Enter LOcation"
+            <input
+                type="text"
+                id="locationInput"
+                name="location"
+                placeholder="Enter LOcation"
             />
 
             <label for="CheckinInput">CheckIn</label>
-            <input type="date"
-            id="CheckinInput"
-            name="CheckIn"
-            placeholder="Checkin Date"
+            <input
+                type="date"
+                id="CheckinInput"
+                name="CheckIn"
+                placeholder="Checkin Date"
             />
 
             <label for="CheckoutInput">CheckOut</label>
-            <input type="date"
-            id="CheckoutInput"
-            name="Checkout"
-            placeholder="CheckOut Date"/>
-
-            <label for="AdultsInput">Adults</label>
-            <input type="Number"
-            id="AdultsInput"
-            name="Adults"
-            placeholder="Adults">
-
-            <label for="ChildrenInput">Children</label>
-            <input type="number"
-            id="ChildrenInput"
-            name="Children"
-            placeholder="Children"/>
-
-            <label for="InfantInput">INfants</label>
-            <input type="number"
-            id="InfantInput"
-            name="Infants"
-            placeholder="Infants"
+            <input
+                type="date"
+                id="CheckoutInput"
+                name="Checkout"
+                placeholder="CheckOut Date"
             />
 
-            
+            <label for="AdultsInput">Adults</label>
+            <input
+                type="Number"
+                id="AdultsInput"
+                name="Adults"
+                placeholder="Adults"
+            />
 
+            <label for="ChildrenInput">Children</label>
+            <input
+                type="number"
+                id="ChildrenInput"
+                name="Children"
+                placeholder="Children"
+            />
+
+            <label for="InfantInput">INfants</label>
+            <input
+                type="number"
+                id="InfantInput"
+                name="Infants"
+                placeholder="Infants"
+            />
+
+            <label for="CurrencyInput">Currency</label>
+            <input
+                type="text"
+                id="CurrencyInput"
+                name="Currancy"
+                placeholder="Currency"
+            />
+
+            <button type="submit">Search</button>
+        </form>
+        <script src="script.js"></script>
     </body>
 </html>
