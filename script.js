@@ -16,18 +16,26 @@ document
             url:
                 "https://airbnb13.p.rapidapi.com/search-location?location=" +
                 locationInput +
-                "&checkin=" + CheckinInput
-                + "&checkout=" + CheckoutInput
-                + "&adults=" + AdultsInput
-                + "&children=" + ChildrenInput
-                + "&infants=" + InfantsInput
-                + "&pets=" + PetsInput
-                + "&page=" + PageInput
-                + "&currency=" + CurrencyInput ,
+                "&checkin=" +
+                CheckinInput +
+                "&checkout=" +
+                CheckoutInput +
+                "&adults=" +
+                AdultsInput +
+                "&children=" +
+                ChildrenInput +
+                "&infants=" +
+                InfantsInput +
+                "&pets=" +
+                PetsInput +
+                "&page=" +
+                PageInput +
+                "&currency=" +
+                CurrencyInput,
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
-                    "ed3df20a40mshb949eec62db27c2p17f2bfjsn70861f8980a6",
+                    "e08aca1624mshfe12c89aee25588p1c3f28jsnf213b9105837",
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
@@ -37,7 +45,7 @@ document
             })
             .then(function (data) {
                 var resultsContainer = document.getElementById("results");
-                var listings = (data.results);
+                var listings = data.results;
                 var resultsHTML = "";
                 for (var i = 0; i < listings.length; i++) {
                     var listing = listings[i];
@@ -66,18 +74,18 @@ document
                         "</p>\
           <hr>\
         ";
-        console.log(data.results);
-                
-        
-                resultsContainer.innerHTML = resultsHTML;
-            const container = document.getElementById('image-container');
-     
-            for (let i = 0; i < images.length; i++) {
-                    const img = document.createElement('img');
-                    img.src = images[i];
-                    container.appendChild(img);
+                    console.log(data.results);
+
+                    resultsContainer.innerHTML = resultsHTML;
+                    const container =
+                        document.getElementById("image-container");
+
+                    for (let i = 0; i < images.length; i++) {
+                        const img = document.createElement("img");
+                        img.src = images[i];
+                        container.appendChild(img);
+                    }
                 }
-            }
             })
             .catch(function (error) {
                 console.error(
@@ -86,4 +94,3 @@ document
                 );
             });
     });
-
