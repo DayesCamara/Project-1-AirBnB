@@ -16,14 +16,22 @@ document
             url:
                 "https://airbnb13.p.rapidapi.com/search-location?location=" +
                 locationInput +
-                "&checkin=" + CheckinInput
-                + "&checkout=" + CheckoutInput
-                + "&adults=" + AdultsInput
-                + "&children=" + ChildrenInput
-                + "&infants=" + InfantsInput
-                + "&pets=" + PetsInput
-                + "&page=" + PageInput
-                + "&currency=" + CurrencyInput ,
+                "&checkin=" +
+                CheckinInput +
+                "&checkout=" +
+                CheckoutInput +
+                "&adults=" +
+                AdultsInput +
+                "&children=" +
+                ChildrenInput +
+                "&infants=" +
+                InfantsInput +
+                "&pets=" +
+                PetsInput +
+                "&page=" +
+                PageInput +
+                "&currency=" +
+                CurrencyInput,
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
@@ -37,7 +45,7 @@ document
             })
             .then(function (data) {
                 var resultsContainer = document.getElementById("results");
-                var listings = (data.results);
+                var listings = data.results;
                 var resultsHTML = "";
                 for (var i = 0; i < listings.length; i++) {
                     var listing = listings[i];
