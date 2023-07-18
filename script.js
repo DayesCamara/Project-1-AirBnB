@@ -27,7 +27,7 @@ document
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
-                    "ed3df20a40mshb949eec62db27c2p17f2bfjsn70861f8980a6",
+                    "e08aca1624mshfe12c89aee25588p1c3f28jsnf213b9105837",
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
@@ -47,6 +47,14 @@ document
                     var url = listing.url;
                     var description = JSON.stringify(listing.type);
                     var images = listing.images;
+                    const container = document.getElementById('image-container');
+     
+                    for (let i = 0; i < images.length; i++) {
+                            const img = document.createElement('img');
+                            img.src = images[i];
+                            container.appendChild(img);
+                        }
+                        
                     resultsHTML +=
                         "\
           <h3>Name: " +
@@ -65,18 +73,11 @@ document
                         url +
                         "</p>\
           <hr>\
-        ";
+        "           ;
         console.log(data.results);
                 
         
                 resultsContainer.innerHTML = resultsHTML;
-            const container = document.getElementById('image-container');
-     
-            for (let i = 0; i < images.length; i++) {
-                    const img = document.createElement('img');
-                    img.src = images[i];
-                    container.appendChild(img);
-                }
             }
             })
             .catch(function (error) {
@@ -85,5 +86,33 @@ document
                     error
                 );
             });
-    });
 
+    
+
+
+
+
+    });
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slideshow");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
