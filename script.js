@@ -1,3 +1,37 @@
+mapboxgl.accessToken =
+    "pk.eyJ1IjoiaGFpbGJsYWNrc25vdyIsImEiOiJjbGs3ZGQyaHIwNzBwM2ttbHNjbWNreWc1In0.E4B5dGLFeJxEPMYwuRq8vQ";
+
+var map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v12",
+    center: [-110, 45],
+    zoom: 1,
+});
+
+var marker1 = new mapboxgl.Marker({
+    color: "Red",
+    rotation: 45,
+    draggable: true, // Set marker1 draggable
+})
+    .setLngLat([-110, 45])
+    .addTo(map);
+
+var marker2 = new mapboxgl.Marker({
+    draggable: true, // Set marker2 draggable
+})
+    .setLngLat([-112, 42])
+    .addTo(map);
+
+map.addControl(new mapboxgl.FullscreenControl(), "top-right");
+map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+var directions = new MapboxDirections({
+    accessToken: mapboxgl.accessToken,
+    unit: "metric",
+    profile: "mapbox/driving",
+});
+map.addControl(directions, "top-left");
+
 document
     .getElementById("searchForm")
     .addEventListener("submit", function (event) {
@@ -10,6 +44,7 @@ document
         var InfantsInput = document.getElementById("InfantsInput").value;
         var PetsInput = document.getElementById("PetsInput").value;
         var CurrencyInput = document.getElementById("CurrencyInput").value;
+
         var settings = {
             async: true,
             crossDomain: true,
@@ -39,6 +74,7 @@ document
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
+
         fetch(settings.url, { headers: settings.headers })
             .then(function (response) {
                 return response.json();
@@ -55,30 +91,41 @@ document
                     var url = listing.url;
                     var description = JSON.stringify(listing.type);
                     var images = listing.images;
+                    const container = document.getElementById('image-container');
+     
+                    for (let i = 0; i < images.length; i++) {
+                            const img = document.createElement('img');
+                            img.src = images[i];
+                            container.appendChild(img);
+                        }
+                        
                     resultsHTML +=
-                        "\
-          <h3>Name: " +
+                        "<h3 class='result-name' data-lng='" +
+                        listing.lng +
+                        "' data-lat='" +
+                        listing.lat +
+                        "'>" +
                         name +
                         "</h3>\
-          <p>Price: " +
+                    <p>Price: " +
                         price +
                         "</p>\
-          <p>Rating: " +
+                    <p>Rating: " +
                         rating +
                         "</p>\
-          <p>Description: " +
+                    <p>Description: " +
                         description +
                         "</p>\
-          <p>URL: " +
+                    <p>URL: " +
                         url +
                         "</p>\
-          <hr>\
-        ";
-                    console.log(data.results);
+                    <hr>";
 
                     resultsContainer.innerHTML = resultsHTML;
-                    const container =
+
+                    const Container =
                         document.getElementById("image-container");
+                    container.innerHTML = "";
 
                     for (let i = 0; i < images.length; i++) {
                         const img = document.createElement("img");
@@ -86,11 +133,64 @@ document
                         container.appendChild(img);
                     }
                 }
-            })
+
+                // Add click event listener to each result name
+                var resultNames =
+                    document.getElementsByClassName("result-name");
+                for (var j = 0; j < resultNames.length; j++) {
+                    resultNames[j].addEventListener("click", function () {
+                        var lng = parseFloat(this.dataset.lng);
+                        var lat = parseFloat(this.dataset.lat);
+
+                        // Set the map center and zoom to the selected location
+                        map.flyTo({ center: [lng, lat], zoom: 12 });
+
+                        // Add a marker at the selected location
+                        new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+                    });
+                }
+
+          <hr>\
+        "           ;
+        console.log(data.results);
+                
+        
+                resultsContainer.innerHTML = resultsHTML;          }
+>
+           })
             .catch(function (error) {
                 console.error(
                     "An error occurred during the API request.",
                     error
                 );
             });
+
+    
+
+
+
+
     });
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slideshow");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
