@@ -91,6 +91,14 @@ document
                     var url = listing.url;
                     var description = JSON.stringify(listing.type);
                     var images = listing.images;
+                    const container = document.getElementById('image-container');
+     
+                    for (let i = 0; i < images.length; i++) {
+                            const img = document.createElement('img');
+                            img.src = images[i];
+                            container.appendChild(img);
+                        }
+                        
                     resultsHTML +=
                         "<h3 class='result-name' data-lng='" +
                         listing.lng +
@@ -111,6 +119,7 @@ document
                     <p>URL: " +
                         url +
                         "</p>\
+<<<<<<< HEAD
                     <hr>";
 
                     resultsContainer.innerHTML = resultsHTML;
@@ -141,6 +150,15 @@ document
                         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
                     });
                 }
+=======
+          <hr>\
+        "           ;
+        console.log(data.results);
+                
+        
+                resultsContainer.innerHTML = resultsHTML;
+            }
+>>>>>>> 7b20e255a7d072112a8183ea1a4d026647622c43
             })
             .catch(function (error) {
                 console.error(
@@ -148,4 +166,33 @@ document
                     error
                 );
             });
+
+    
+
+
+
+
     });
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slideshow");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }

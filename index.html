@@ -14,6 +14,7 @@
             href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
             type="text/css"
         />
+<<<<<<< HEAD
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
         <style>
@@ -111,4 +112,67 @@
             <div id="map"></div>
         </div>
     </body>
+=======
+        <label for="CheckoutInput">CheckOut:</label>
+        <input
+            type="date"
+            id="CheckoutInput"
+            name="Checkout"
+            placeholder="CheckOut Date"
+        />
+        <label for="AdultsInput">Adults:</label>
+        <input
+            type="number"
+            id="AdultsInput"
+            name="Adults"
+            placeholder="Adults"
+        />
+        <label for="ChildrenInput">Children:</label>
+        <input
+            type="number"
+            id="ChildrenInput"
+            name="Children"
+            placeholder="Children"
+        />
+        <label for="InfantsInput">Infants:</label>
+        <input
+            type="number"
+            id="InfantsInput"
+            name="Infants"
+            placeholder="Infants"
+        />
+        <label for="PetsInput">Pets:</label>
+        <input
+            type="number"
+            id="PetsInput"
+            name="Pets"
+            placeholder="Pets"
+        />
+        <label for="PageInput">Page:</label>
+        <input
+            type="number"
+            id="PageInput"
+            name="Page"
+            placeholder="Page"
+        />
+        <label for="CurrencyInput">Currency:</label>
+        <input
+            type="text"
+            id="CurrencyInput"
+            name="Currency"
+            placeholder="Currency"
+        />
+        <button type="submit">Search</button>
+        </form>
+        <div class="search-results-container">
+            <div id="results"></div>
+            <div id="image-container" class="slideshow fade">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+    
+    <script src="script.js"></script>
+</body>
+>>>>>>> 7b20e255a7d072112a8183ea1a4d026647622c43
 </html>
