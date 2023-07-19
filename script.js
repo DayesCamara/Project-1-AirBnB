@@ -119,6 +119,10 @@ document
                     <p>URL: " +
                         url +
                         "</p>\
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> cdc527235f4f5a276ea9f120cfdbac31e3d074c8
                     <hr>";
 
                     resultsContainer.innerHTML = resultsHTML;
@@ -155,9 +159,16 @@ document
         console.log(data.results);
                 
         
+<<<<<<< HEAD
                 resultsContainer.innerHTML = resultsHTML;          }
 >
            })
+=======
+                resultsContainer.innerHTML = resultsHTML;
+            }
+>>>>>>> 7b20e255a7d072112a8183ea1a4d026647622c43
+            })
+>>>>>>> cdc527235f4f5a276ea9f120cfdbac31e3d074c8
             .catch(function (error) {
                 console.error(
                     "An error occurred during the API request.",
