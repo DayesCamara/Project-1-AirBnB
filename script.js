@@ -124,7 +124,7 @@ document
 
                     resultsContainer.innerHTML = resultsHTML;
 
-                    const container =
+                    const Container =
                         document.getElementById("image-container");
                     container.innerHTML = "";
 
@@ -150,7 +150,7 @@ document
                         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
                     });
                 }
-=======
+
           <hr>\
         "           ;
         console.log(data.results);
