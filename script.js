@@ -32,6 +32,9 @@ var directions = new MapboxDirections({
 });
 map.addControl(directions, "top-left");
 
+
+
+
 document
     .getElementById("searchForm")
     .addEventListener("submit", function (event) {
@@ -45,7 +48,7 @@ document
         var InfantsInput = document.getElementById("InfantsInput").value;
         var PetsInput = document.getElementById("PetsInput").value;
         var CurrencyInput = document.getElementById("CurrencyInput").value;
-
+        
         var settings = {
             async: true,
             crossDomain: true,
@@ -92,7 +95,10 @@ document
                     var url = listing.url;
                     var description = JSON.stringify(listing.type);
                     var images = listing.images;
-                    const container = document.getElementById('image-container');
+                    var lng = listing.lng;
+                    var lat = listing.lat;
+                    const container = document.getElementById('image-container')
+                    
      
                     for (let i = 0; i < images.length; i++) {
                             const img = document.createElement('img');
@@ -101,33 +107,34 @@ document
                         }
                         
                     resultsHTML +=
-                        "<h3 class='result-name' data-lng='" +
-                        listing.lng +
-                        "' data-lat='" +
-                        listing.lat +
-                        "'>" +
-                        name +
-                        "</h3>\
+                    "\
+                    <h3> " +
+                                  name +
+                                  "</h3>\
                     <p>Price: " +
-                        price +
-                        "</p>\
+                                  price +
+                                  "</p>\
                     <p>Rating: " +
-                        rating +
-                        "</p>\
+                                  rating +
+                                  "</p>\
                     <p>Description: " +
-                        description +
-                        "</p>\
+                                  description +
+                                  "</p>\
+                    <p>Coordinates: " +
+                                  lng + ", " + lat +
+                                  "</p>\
                     <p>URL: " +
-                        url +
-                        "</p>\
-                    <hr>";
+                                  url +
+                                  "</p>\
+                    <hr>\
+                  ";
 
                     resultsContainer.innerHTML = resultsHTML;
 
                 
                 }
 
-                console.log(listing);
+                console.log(data.results);
 
                 // Add click event listener to each result name
                 var resultNames =
