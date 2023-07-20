@@ -99,10 +99,10 @@ document
                         </div>
                         <div class = "text">
                             <h2>${listing.name}</h2>
-                            <p>Price:${JSON.stringify(listing.price.rate)}</p>
-                            <p>Description:${JSON.stringify(listing.type)}</p>
-                            <p>Coordinates:${listing.lng},${listing.lat}</p>
-                            <div class="url"><a href=${listing.url}">URL:${listing.url}</a></div>
+                            <p>Price: ${JSON.stringify(listing.price.rate)}</p>
+                            <p>Description: ${JSON.stringify(listing.type)}</p>
+                            <p>Coordinates: ${listing.lng}, ${listing.lat}</p>
+                            <div class="url"><a href=${listing.url}>URL:${listing.url}</a></div>
                             <br></br>
                         </div>
                         </div>`;
