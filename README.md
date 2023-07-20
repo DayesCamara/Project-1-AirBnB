@@ -15,7 +15,8 @@ This is a JavaScript project that aims to replicate some features of Airbnb's we
 ## Technologies Used
 
 - HTML5 and CSS3 for the structure and styling of the web pages.
-- JavaScript for the interactivity and functionality of the application.
+- Flexbox was also used. 
+- JavaScript for the interactivity and functionality of the application. 
 - Fetch API for making requests to the Airbnb API and retrieving listing data.
 - RapidAPI for accessing the Airbnb API and retrieving accommodation information.
 - Bootstrap or other CSS frameworks for enhancing the design and responsiveness.
