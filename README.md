@@ -33,6 +33,8 @@ This is a JavaScript project that aims to replicate some features of Airbnb's we
 
 4. Open the `index.html` file in a web browser to view the Airbnb project.
 
+5. API documentations to understand the API's functionality
+
 ## Credits
 
 - This project uses the Airbnb API for retrieving listing data. Visit [Airbnb API](https://www.airbnb.com/partner) for more information.
