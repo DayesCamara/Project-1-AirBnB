@@ -84,52 +84,35 @@ document
                 return response.json();
             })
             .then(function (data) {
-                var resultsContainer = document.getElementById("results");
+                var resultsContainer = document.getElementById("resultsContainer");
                 var listings = data.results;
                 var resultsHTML = "";
                 for (var i = 0; i < listings.length; i++) {
                     var listing = listings[i];
-                    var name = listing.name;
-                    var price = JSON.stringify(listing.price.rate);
-                    var rating = listing.rating;
-                    var url = listing.url;
-                    var description = JSON.stringify(listing.type);
-                    var images = listing.images;
-                    var lng = listing.lng;
-                    var lat = listing.lat;
-                    const container = document.getElementById('image-container')
-                    
-     
-                    for (let i = 0; i < images.length; i++) {
-                            const img = document.createElement('img');
-                            img.src = images[i];
-                            container.appendChild(img);
-                        }
+            
                         
                     resultsHTML +=
-                    "\
-                    <h3> " +
-                                  name +
-                                  "</h3>\
-                    <p>Price: " +
-                                  price +
-                                  "</p>\
-                    <p>Rating: " +
-                                  rating +
-                                  "</p>\
-                    <p>Description: " +
-                                  description +
-                                  "</p>\
-                    <p>Coordinates: " +
-                                  lng + ", " + lat +
-                                  "</p>\
-                    <p>URL: " +
-                                  url +
-                                  "</p>\
-                    <hr>\
-                  ";
+                    
+                    `<div class="results">
+                        <div class = "image">
+                            <img src="${listing.images[0]}" >
+                        </div>
+                        <div class = "text">
+                            <h2>${listing.name}</h2>
+                            <p>Price:${JSON.stringify(listing.price.rate)}</p>
+                            <p>Description:${JSON.stringify(listing.type)}</p>
+                            <p>Coordinates:${listing.lng},${listing.lat}</p>
+                            <div class="url"><a href=${listing.url}">URL:${listing.url}</a></div>
+                            <br></br>
+                        </div>
+                        </div>`;
+                    
+                    
+                    document.getElementById("resultsContainer").style.display="block";
 
                     resultsContainer.innerHTML = resultsHTML;
+
+
 
                 
                 }
