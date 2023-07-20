@@ -19,6 +19,34 @@
 
 * {box-sizing:border-box}
 
+.titleHero{
+  display: flex;
+  justify-content: space-between;
+}
+
+div#carousel-example-generic {
+  position:relative;
+}
+
+
+
+#cloudBNB{
+  position: relative ;
+  color: teal;
+  font-size: 50px;
+  font-weight: bolder;
+}
+#subHead{
+  position: relative;
+  top: -45px;
+  font-size: 30px;
+}
+.hero-body{
+  padding-bottom: 0px;
+  padding-top: 30px;
+}
+
+
 
 /* Hide the images by default */
 .slideshow {

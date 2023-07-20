@@ -36,6 +36,7 @@ document
     .getElementById("searchForm")
     .addEventListener("submit", function (event) {
         event.preventDefault();
+        console.log("click");
         var locationInput = document.getElementById("locationInput").value;
         var CheckinInput = document.getElementById("CheckinInput").value;
         var CheckoutInput = document.getElementById("CheckoutInput").value;
@@ -70,7 +71,7 @@ document
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
-                    "e08aca1624mshfe12c89aee25588p1c3f28jsnf213b9105837",
+                    "bcdeb201e7msh2f4cbf739838312p1ae01bjsn0bb54cdbcc98",
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
@@ -86,7 +87,7 @@ document
                 for (var i = 0; i < listings.length; i++) {
                     var listing = listings[i];
                     var name = listing.name;
-                    var price = JSON.stringify(listing.price.total);
+                    var price = JSON.stringify(listing.price.rate);
                     var rating = listing.rating;
                     var url = listing.url;
                     var description = JSON.stringify(listing.type);
@@ -119,21 +120,14 @@ document
                     <p>URL: " +
                         url +
                         "</p>\
-<<<<<<< HEAD
                     <hr>";
 
                     resultsContainer.innerHTML = resultsHTML;
 
-                    const container =
-                        document.getElementById("image-container");
-                    container.innerHTML = "";
-
-                    for (let i = 0; i < images.length; i++) {
-                        const img = document.createElement("img");
-                        img.src = images[i];
-                        container.appendChild(img);
-                    }
+                
                 }
+
+                console.log(listing);
 
                 // Add click event listener to each result name
                 var resultNames =
@@ -150,15 +144,6 @@ document
                         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
                     });
                 }
-=======
-          <hr>\
-        "           ;
-        console.log(data.results);
-                
-        
-                resultsContainer.innerHTML = resultsHTML;
-            }
->>>>>>> 7b20e255a7d072112a8183ea1a4d026647622c43
             })
             .catch(function (error) {
                 console.error(
@@ -173,26 +158,4 @@ document
 
 
     });
-    let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("slideshow");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[slideIndex-1].style.display = "block";
-    }
+ 

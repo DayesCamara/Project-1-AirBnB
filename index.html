@@ -9,12 +9,21 @@
             href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
             rel="stylesheet"
         />
+            <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- link to pure -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+            <!-- link to font -->
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+         <!-- link to google font -->
+         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
         <link
             rel="stylesheet"
             href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
             type="text/css"
         />
-<<<<<<< HEAD
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
         <style>
@@ -39,140 +48,119 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h1>Airbnb Search</h1>
-        <div id="searchForm">
-            <label for="locationInput">Location:</label>
-            <input
-                type="text"
-                id="locationInput"
-                name="location"
-                placeholder="Enter location"
-            />
-            <label for="CheckinInput">CheckIn:</label>
-            <input
-                type="date"
-                id="CheckinInput"
-                name="Checkin"
-                placeholder="Checkin Date"
-            />
-            <label for="CheckoutInput">CheckOut:</label>
-            <input
-                type="date"
-                id="CheckoutInput"
-                name="Checkout"
-                placeholder="CheckOut Date"
-            />
-            <label for="AdultsInput">Adults:</label>
-            <input
-                type="number"
-                id="AdultsInput"
-                name="Adults"
-                placeholder="Adults"
-            />
-            <label for="ChildrenInput">Children:</label>
-            <input
-                type="number"
-                id="ChildrenInput"
-                name="Children"
-                placeholder="Children"
-            />
-            <label for="InfantsInput">Infants:</label>
-            <input
-                type="number"
-                id="InfantsInput"
-                name="Infants"
-                placeholder="Infants"
-            />
-            <label for="PetsInput">Pets:</label>
-            <input
-                type="number"
-                id="PetsInput"
-                name="Pets"
-                placeholder="Pets"
-            />
-            <label for="PageInput">Page:</label>
-            <input
-                type="number"
-                id="PageInput"
-                name="Page"
-                placeholder="Page"
-            />
-            <label for="CurrencyInput">Currency:</label>
-            <input
-                type="text"
-                id="CurrencyInput"
-                name="Currency"
-                placeholder="Currency"
-            />
-            <button type="submit">Search</button>
-        </div>
-        <div id="results"></div>
-        <div id="image-container"></div>
-        <div id="mapContainer">
-            <div id="map"></div>
-        </div>
-    </body>
-=======
-        <label for="CheckoutInput">CheckOut:</label>
-        <input
-            type="date"
-            id="CheckoutInput"
-            name="Checkout"
-            placeholder="CheckOut Date"
-        />
-        <label for="AdultsInput">Adults:</label>
-        <input
-            type="number"
-            id="AdultsInput"
-            name="Adults"
-            placeholder="Adults"
-        />
-        <label for="ChildrenInput">Children:</label>
-        <input
-            type="number"
-            id="ChildrenInput"
-            name="Children"
-            placeholder="Children"
-        />
-        <label for="InfantsInput">Infants:</label>
-        <input
-            type="number"
-            id="InfantsInput"
-            name="Infants"
-            placeholder="Infants"
-        />
-        <label for="PetsInput">Pets:</label>
-        <input
-            type="number"
-            id="PetsInput"
-            name="Pets"
-            placeholder="Pets"
-        />
-        <label for="PageInput">Page:</label>
-        <input
-            type="number"
-            id="PageInput"
-            name="Page"
-            placeholder="Page"
-        />
-        <label for="CurrencyInput">Currency:</label>
-        <input
-            type="text"
-            id="CurrencyInput"
-            name="Currency"
-            placeholder="Currency"
-        />
-        <button type="submit">Search</button>
-        </form>
-        <div class="search-results-container">
-            <div id="results"></div>
-            <div id="image-container" class="slideshow fade">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <section>
+                <div class="container" id="heroContainer">
+                    <div class="titleHero">
+                        <h1 id="cloudBNB">CloudBnB</h1>
+                        <img id="cloud" src="logo.png" alt="MIC" >
+                      </div>
+                      <h4 id="subHead">Find your next trip!</h4>
+                        
+                </div>
             </div>
-        </div>
-    
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4">
+                        <!--Search box-->
+                        <div class="notification is-primary is-size-3">
+                            <form id="searchForm">
+                                <label class="label">Enter Trip Details</label>
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <label for="locationInput">Location:</label>
+                                        <input
+                                            type="text"
+                                            id="locationInput"
+                                            name="location"
+                                            placeholder="Enter location"
+                                        />
+                                        <br>
+                                        <label for="CheckinInput">CheckIn:</label>
+                                        <input
+                                            type="date"
+                                            id="CheckinInput"
+                                            name="Checkin"
+                                            placeholder="Checkin Date"
+                                        />
+                                        <br>
+                                        <label for="CheckoutInput">CheckOut:</label>
+                                        <input
+                                            type="date"
+                                            id="CheckoutInput"
+                                            name="Checkout"
+                                            placeholder="CheckOut Date"
+                                        />
+                                        <br>
+                                        <label for="AdultsInput">Adults:</label>
+                                        <input
+                                            type="number"
+                                            id="AdultsInput"
+                                            name="Adults"
+                                            placeholder="Adults"
+                                        />
+                                        <br>
+                                        <label for="ChildrenInput">Children:</label>
+                                        <input
+                                            type="number"
+                                            id="ChildrenInput"
+                                            name="Children"
+                                            placeholder="Children"
+                                        />
+                                        <br>
+                                        <label for="InfantsInput">Infants:</label>
+                                        <input
+                                            type="number"
+                                            id="InfantsInput"
+                                            name="Infants"
+                                            placeholder="Infants"
+                                        />
+                                        <br>
+                                        <label for="PetsInput">Pets:</label>
+                                        <input
+                                            type="number"
+                                            id="PetsInput"
+                                            name="Pets"
+                                            placeholder="Pets"
+                                        />
+                                        <br>
+                                        <label for="PageInput">Page:</label>
+                                        <input
+                                            type="number"
+                                            id="PageInput"
+                                            name="Page"
+                                            placeholder="Page"
+                                        />
+                                        <br>
+                                        <label for="CurrencyInput">Currency:</label>
+                                        <input
+                                            type="text"
+                                            id="CurrencyInput"
+                                            name="Currency"
+                                            placeholder="Currency"
+                                        />
+                                        <div class="control">
+                                            <button type="submit" class="button is-info" >Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="mapContainer">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="results"></div>
+            <div id="image-container"></div>
+        </section>
+      
+       
+   
     <script src="script.js"></script>
 </body>
->>>>>>> 7b20e255a7d072112a8183ea1a4d026647622c43
+
 </html>
