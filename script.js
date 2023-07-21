@@ -74,7 +74,7 @@ document
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
-                    "bcdeb201e7msh2f4cbf739838312p1ae01bjsn0bb54cdbcc98",
+                    "1e818eaf7fmsh9494507a601e11bp1bbff6jsnd87c9016a38f",
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
