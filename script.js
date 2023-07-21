@@ -32,9 +32,6 @@ var directions = new MapboxDirections({
 });
 map.addControl(directions, "top-left");
 
-
-
-
 document
     .getElementById("searchForm")
     .addEventListener("submit", function (event) {
@@ -48,7 +45,7 @@ document
         var InfantsInput = document.getElementById("InfantsInput").value;
         var PetsInput = document.getElementById("PetsInput").value;
         var CurrencyInput = document.getElementById("CurrencyInput").value;
-        
+
         var settings = {
             async: true,
             crossDomain: true,
@@ -74,7 +71,7 @@ document
             method: "GET",
             headers: {
                 "X-RapidAPI-Key":
-                    "1e818eaf7fmsh9494507a601e11bp1bbff6jsnd87c9016a38f",
+                    "5b890931b1msh9bb2fe101a24b7ep1b89cajsned7bf1469024",
                 "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
             },
         };
@@ -84,16 +81,15 @@ document
                 return response.json();
             })
             .then(function (data) {
-                var resultsContainer = document.getElementById("resultsContainer");
+                var resultsContainer =
+                    document.getElementById("resultsContainer");
                 var listings = data.results;
+                console.log(listings);
                 var resultsHTML = "";
                 for (var i = 0; i < listings.length; i++) {
                     var listing = listings[i];
-            
-                        
-                    resultsHTML +=
-                    
-                    `<div class="results">
+
+                    resultsHTML += `<div class="results">
                         <div class = "image">
                             <img src="${listing.images[0]}" >
                         </div>
@@ -102,19 +98,17 @@ document
                             <p>Price: ${JSON.stringify(listing.price.rate)}</p>
                             <p>Description: ${JSON.stringify(listing.type)}</p>
                             <p>Coordinates: ${listing.lng}, ${listing.lat}</p>
-                            <div class="url"><a href=${listing.url}>URL:${listing.url}</a></div>
+                            <div class="url"><a href=${listing.url}>URL:${
+                        listing.url
+                    }</a></div>
                             <br></br>
                         </div>
                         </div>`;
-                    
-                    
-                    document.getElementById("resultsContainer").style.display="block";
+
+                    document.getElementById("resultsContainer").style.display =
+                        "block";
 
                     resultsContainer.innerHTML = resultsHTML;
-
-
-
-                
                 }
 
                 console.log(data.results);
@@ -141,11 +135,4 @@ document
                     error
                 );
             });
-
-    
-
-
-
-
     });
- 
